@@ -26,9 +26,9 @@ export default function EnableNotifications() {
   return (
     <button
       onClick={enable}
-      className="px-4 py-2 border border-white rounded-full text-lg tracking-tighter"
+      className="px-4 py-2 border border-white text-white bg-[#0a0a0a] shadow-xl rounded-full text-lg tracking-tighter"
     >
-      Activar notificaciones 💻
+      Activar notificaciones 💻 1
     </button>
   );
 }
