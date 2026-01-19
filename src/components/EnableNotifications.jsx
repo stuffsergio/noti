@@ -2,22 +2,8 @@
 
 export default function EnableNotifications() {
   const enable = async () => {
-    if (typeof window === "undefined") return;
-
-    if (!window.matchMedia("(display-mode: standalone)").matches) {
-      alert("Instala la app desde Safari para activar notificaciones.");
-      return;
-    }
-
-    if (!("serviceWorker" in navigator)) {
-      alert("Service Workers no disponibles en este dispositivo.");
-      return;
-    }
-
-    if (!("Notification" in window)) {
-      alert("Notificaciones no soportadas.");
-      return;
-    }
+    if (!("Notification" in window)) return;
+    if (!("serviceWorker" in navigator)) return;
 
     const permission = await Notification.requestPermission();
     if (permission !== "granted") return;
@@ -37,5 +23,12 @@ export default function EnableNotifications() {
     alert("Notificaciones activadas ✅");
   };
 
-  return <button onClick={enable}>Activar notificaciones</button>;
+  return (
+    <button
+      onClick={enable}
+      className="px-4 py-2 border border-white rounded-full text-lg tracking-tighter"
+    >
+      Activar notificaciones 💻
+    </button>
+  );
 }
