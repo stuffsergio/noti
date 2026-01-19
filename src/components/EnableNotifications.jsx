@@ -1,9 +1,21 @@
 "use client";
 
 export default function EnableNotifications() {
+  if (typeof window === "undefined") return null;
+
+  const hasNotification =
+    "Notification" in window && typeof Notification.permission === "string";
+
   const enable = async () => {
-    if (!("Notification" in window)) return;
-    if (!("serviceWorker" in navigator)) return;
+    if (!hasNotification) {
+      alert("Notificaciones no soportadas en este dispositivo");
+      return;
+    }
+
+    if (!("serviceWorker" in navigator)) {
+      alert("Service Worker no disponible");
+      return;
+    }
 
     const permission = await Notification.requestPermission();
     if (permission !== "granted") return;
@@ -23,12 +35,18 @@ export default function EnableNotifications() {
     alert("Notificaciones activadas ✅");
   };
 
+  if (!hasNotification) {
+    return (
+      <div className="text-sm text-gray-400">
+        Este dispositivo no soporta notificaciones web.
+      </div>
+    );
+  }
+
   if (Notification.permission === "denied") {
     return (
       <div className="text-sm text-gray-400">
         Las notificaciones están bloqueadas.
-        <br />
-        Actívalas desde la configuración del navegador.
       </div>
     );
   }
@@ -42,9 +60,9 @@ export default function EnableNotifications() {
   return (
     <button
       onClick={enable}
-      className="px-4 py-2 border border-white text-white bg-[#0a0a0a] shadow-xl rounded-full text-lg tracking-tighter"
+      className="px-4 py-2 border border-white text-white bg-[#0a0a0a] rounded-full"
     >
-      Activar notificaciones 💻 1
+      Activar notificaciones
     </button>
   );
 }

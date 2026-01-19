@@ -23,11 +23,21 @@ export default function DeviceGate() {
 
   // Android -> botón instalar
   if (isAndroid() && !isStandalone()) {
-    return <InstallAndroid /> && <EnableNotifications />;
+    return (
+      <>
+        <InstallAndroid />
+        <EnableNotifications />
+      </>
+    );
   }
 
   // iOS -> Overlay instrucciones
   if (isIOS() && !isStandalone()) {
-    return <InstallIOSOverlay /> && <EnableNotifications />;
+    return (
+      <>
+        <InstallIOSOverlay />
+        <EnableNotifications />
+      </>
+    );
   }
 }
