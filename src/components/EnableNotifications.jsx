@@ -23,6 +23,22 @@ export default function EnableNotifications() {
     alert("Notificaciones activadas ✅");
   };
 
+  if (Notification.permission === "denied") {
+    return (
+      <div className="text-sm text-gray-400">
+        Las notificaciones están bloqueadas.
+        <br />
+        Actívalas desde la configuración del navegador.
+      </div>
+    );
+  }
+
+  if (Notification.permission === "granted") {
+    return (
+      <div className="text-sm text-gray-400">Notificaciones activadas ✅</div>
+    );
+  }
+
   return (
     <button
       onClick={enable}
