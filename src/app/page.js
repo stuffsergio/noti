@@ -1,3 +1,4 @@
+import DeviceGate from "@/components/DeviceGate";
 import EnableNotifications from "@/components/EnableNotifications";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
       <main>
         <EnableNotifications />
       </main>
+      <DeviceGate />
     </div>
   );
 }
