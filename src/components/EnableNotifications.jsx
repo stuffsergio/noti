@@ -62,6 +62,12 @@ export default function EnableNotifications() {
         <span className="absolute top-10 right-8 text-sm text-gray-400">
           <AlarmClockCheckIcon />
         </span>
+        <button
+          onClick={enable}
+          className="px-3 py-1.5 text-white bg-[#0a0a0a] text-sm rounded-full border border-white"
+        >
+          Aquí para activar si no deja
+        </button>
       </div>
     );
   }
@@ -69,7 +75,7 @@ export default function EnableNotifications() {
   return (
     <button
       onClick={enable}
-      className="px-4 py-2 border border-white text-white bg-[#0a0a0a] rounded-full hover:bg-blue-600 hover:text-shadow-white hover:text-shadow-lg active:scale-95 active:shadow-inner active:bg-[#0a0a0a]/70"
+      className="px-4 py-2 border border-white text-black bg-white rounded-full hover:bg-blue-600 hover:text-shadow-white hover:text-shadow-lg active:scale-95 active:shadow-inner active:bg-[#0a0a0a]/70"
     >
       Activar notificaciones
     </button>
