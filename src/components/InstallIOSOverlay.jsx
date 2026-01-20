@@ -25,7 +25,7 @@ export default function InstallIOSOverlay() {
           </div>
         </div>
       ) : (
-        <div>Hola</div>
+        <div>Cómo instalar</div>
       )}
     </div>
   );
