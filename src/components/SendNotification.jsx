@@ -6,13 +6,15 @@ export default function SendNotification() {
       method: "POST",
     });
 
-    alert("Notificación enviada 🚀");
+    setTimeout(() => {
+      alert("Notificación enviada 🚀");
+    }, 5000);
   };
 
   return (
     <button
       onClick={send}
-      className="px-4 py-2 border border-white rounded-full mt-4"
+      className="px-4 py-2 text-white border border-white rounded-full mt-4"
     >
       Enviar Notificación
     </button>
