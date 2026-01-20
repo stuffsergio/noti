@@ -2,13 +2,16 @@ import webpush from "@/lib/webPush";
 import { subscribtions } from "../subscribe/route";
 
 export async function POST(req) {
-  const { title, body } = await req.json();
+  const payload = JSON.stringify({
+    title: "Notificacion 1",
+    body: "Esta notif. se envió desde un botón",
+  });
 
   await Promise.all(
     subscribtions.map((sub) =>
-      webpush.sendNotification(sub, JSON.stringify({ title, body })),
+      webpush.sendNotification(sub, payload).catch(() => {}),
     ),
   );
 
-  return new Response("Sent");
+  return new Response(JSON.stringify({ success: true }), { status: 200 });
 }

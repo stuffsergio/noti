@@ -6,7 +6,7 @@ export async function POST(req) {
 
   console.log("Subs:", subscribtions.length);
 
-  return new Response("OK");
+  return new Response(JSON.stringify({ success: true }));
 }
 
 export { subscribtions };

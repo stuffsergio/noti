@@ -1,5 +1,6 @@
 import DeviceGate from "@/components/DeviceGate";
 import EnableNotifications from "@/components/EnableNotifications";
+import SendNotification from "@/components/SendNotification";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <h1 className="py-4 text-xl tracking-tight text-white">Hola Mundo!</h1>
       </main>
       <DeviceGate />
+      <SendNotification />
     </div>
   );
 }
