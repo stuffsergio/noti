@@ -6,7 +6,7 @@ self.addEventListener("activate", () => {
   self.clients.claim();
 });
 
-self.addEventListener("push", (event) => {
+/*  self.addEventListener("push", (event) => {
   const data = event.data?.json() || {
     title: "Notificación",
     body: "Mensaje recibido",
@@ -18,16 +18,16 @@ self.addEventListener("push", (event) => {
       icon: "/web-app-manifest-192x192.png",
     }),
   );
-});
+});  */
 
-/*self.addEventListener("push", (event) => {
+self.addEventListener("push", (event) => {
   const data = event.data?.json() || { title: "Notificación", body: "Mensaje" };
 
   self.registration.showNotification(data.title, {
     body: data.body,
     icon: "/web-app-manifest-192x192.png",
   });
-});*/
+});
 
 /** OPCIÓN 2
  * 
