@@ -6,9 +6,7 @@ export default function SendNotification() {
       method: "POST",
     });
 
-    setTimeout(() => {
-      alert("Notificación enviada 🚀");
-    }, 5000);
+    alert("Notificación enviada 🚀");
   };
 
   return (
