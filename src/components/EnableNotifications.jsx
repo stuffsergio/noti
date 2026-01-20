@@ -43,6 +43,7 @@ export default function EnableNotifications() {
     );
   }
 
+  // Hay 3 tipos de permisos: denied - denegada | granted - permitidas | default - aún no decidido
   if (Notification.permission === "denied") {
     return (
       <div className="text-sm text-gray-400">
@@ -60,7 +61,7 @@ export default function EnableNotifications() {
   return (
     <button
       onClick={enable}
-      className="px-4 py-2 border border-white text-white bg-[#0a0a0a] rounded-full"
+      className="px-4 py-2 border border-white text-white bg-[#0a0a0a] rounded-full active:scale-95 active:shadow-inner active:bg-[#0a0a0a]/70"
     >
       Activar notificaciones
     </button>

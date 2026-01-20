@@ -3,7 +3,7 @@ import { subscribtions } from "../subscribe/route";
 
 export async function POST(req) {
   const payload = JSON.stringify({
-    title: "Notificacion 1",
+    title: "Funciona!",
     body: "Esta notif. se envió desde un botón",
   });
 
