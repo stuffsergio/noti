@@ -31,13 +31,14 @@ export default function DeviceGate() {
     );
   }
 
-  // iOS -> Overlay instrucciones
-  if (isIOS() && !isStandalone()) {
-    return (
-      <>
-        <InstallIOSOverlay />
-        <EnableNotifications />
-      </>
-    );
+  // 🍎 iOS
+  if (isIOS()) {
+    if (!isStandalone()) {
+      // iOS SIN instalar → SOLO instrucciones
+      return <InstallIOSOverlay />;
+    }
+
+    // iOS INSTALADA → notificaciones
+    return <EnableNotifications />;
   }
 }
