@@ -1,5 +1,7 @@
 "use client";
 
+import { AlarmClockCheckIcon } from "lucide-react";
+
 export default function EnableNotifications() {
   if (typeof window === "undefined") return null;
 
@@ -52,16 +54,22 @@ export default function EnableNotifications() {
     );
   }
 
+  // Si están permitidas... Mostrar el icono de alarma checked
+  const permitido = Notification.permission === "granted";
   if (Notification.permission === "granted") {
     return (
-      <div className="text-sm text-gray-400">Notificaciones activadas ✅</div>
+      <div className="relative">
+        <span className="absolute top-10 right-8 text-sm text-gray-400">
+          <AlarmClockCheckIcon />
+        </span>
+      </div>
     );
   }
 
   return (
     <button
       onClick={enable}
-      className="px-4 py-2 border border-white text-white bg-[#0a0a0a] rounded-full active:scale-95 active:shadow-inner active:bg-[#0a0a0a]/70"
+      className="px-4 py-2 border border-white text-white bg-[#0a0a0a] rounded-full hover:bg-blue-600 hover:text-shadow-white hover:text-shadow-lg active:scale-95 active:shadow-inner active:bg-[#0a0a0a]/70"
     >
       Activar notificaciones
     </button>
