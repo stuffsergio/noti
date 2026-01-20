@@ -6,7 +6,7 @@ export default function SendNotification() {
       method: "POST",
     });
 
-    alert("Notificación enviada 🚀");
+    // alert("Notificación enviada 🚀");
   };
 
   return (
