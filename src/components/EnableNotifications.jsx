@@ -31,7 +31,14 @@ export default function EnableNotifications() {
 
     await fetch("/api/subscribe", {
       method: "POST",
-      body: JSON.stringify(sub),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        subscription: sub,
+        title: "Notificacion de prueba",
+        body: "Solo para este dispositivo",
+      }),
     });
 
     alert("Notificaciones activadas ✅");
